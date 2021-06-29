@@ -11,57 +11,49 @@ Base = declarative_base()
 
 class People(Base):
     __tablename__ = 'people'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     results = Column()
 
 class Vehicles(Base):
     __tablename__ = 'vehicles'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     results = Column()
 
 class Starships(Base):
     __tablename__ = 'starships'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     results = Column()
 
 class Planets(Base):
     __tablename__ = 'planets'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     results = Column()
 
 class Species(Base):
     __tablename__ = 'species'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     results = Column()
     
 class ReadList(Base):
     __tablename__ = 'read_list'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     results = Column()
 
 class Info(Base):
     __tablename__ = 'info'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     results = Column()
 
 class Store(Base):
     __tablename__ = 'store'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     people_id = Column(Integer, ForeignKey('people.id'))
     People = relationship(People)
@@ -80,8 +72,7 @@ class Store(Base):
 
 class Actions(Base):
     __tablename__ = 'actions'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     get_people = Column()
     get_plantes = Column()
@@ -95,8 +86,7 @@ class Actions(Base):
 
 class Flux(Base):
     __tablename__ = 'flux'
-    # Here we define columns for the table address.
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     store_id = Column(Integer, ForeignKey('store.id'))
     Store = relationship(Store)
@@ -104,26 +94,17 @@ class Flux(Base):
     Actions = relationship(Actions)
 
 
-    def to_dict(self):
-        return {}
-
 class AppContext(Base):
     __tablename__ = 'app_context'
-    # Here we define columns for the table address.
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     flux_id = Column(Integer, ForeignKey('flux.id'))
     Flux = relationship(Flux)
 
 
-    def to_dict(self):
-        return {}
-
-
 class Usuario(Base):
     __tablename__ = 'usuario'
-    # Here we define columns for the table address.
-    # Notice that each column is also a normal Python instance attribute.
+
     id = Column(Integer, primary_key=True)
     app_context_id = Column(Integer, ForeignKey('app_context.id'))
     AppContext = relationship(AppContext)
